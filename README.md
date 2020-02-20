@@ -1,26 +1,26 @@
-# Anon Q&A es un proyecto hecho en Next.JS con Express.JS y MongoDB para hacer preguntas y respuestas de manera anónima.
+## Anon Q&A es un proyecto hecho en Next.JS con Express.JS y MongoDB para hacer preguntas y respuestas de manera anónima.
 
 **Demo:** https://anonqa-kai.herokuapp.com/  
 **Autor:** [@DamianCatanzaro](https://twitter.com/DamianCatanzaro)
 
-## Requerimientos
+### Requerimientos
 
 -   NodeJS
 -   MongoDB
 
-## Instalación
+### Instalación
 
 ```
 git clone
 ```
 
-## Instalación de paquetes de NPM
+### Instalación de paquetes de NPM
 
 ```
 npm install
 ```
 
-## Editar el archivo .env.development para desarrollo
+### Editar el archivo .env.development para desarrollo
 
 ```
 DB_HOST=localhost
@@ -38,7 +38,7 @@ PASSWORD_EDITOR=nuestra_password
 URL=http://localhost:3000
 ```
 
-## Para producción: crear el archivo .env con su configuración
+### Para producción: crear el archivo .env con su configuración
 
 ```
 DB_HOST=localhost
@@ -56,20 +56,20 @@ PASSWORD_EDITOR=nuestra_password
 URL=http://localhost:3000
 ```
 
-## Para correr entorno de desarrollo
+### Para correr entorno de desarrollo
 
 ```
 npm run dev
 ```
 
-## Para correr entorno de producción
+### Para correr entorno de producción
 
 ```
 npm run build
 npm run start
 ```
 
-## Para responder preguntas
+### Para responder preguntas
 
 **Lo unico que hay que hacer es pasarle por query params lo siguiente**
 
