@@ -1,0 +1,48 @@
+.headerContainer {
+  padding: 16px;
+}
+
+.headerContainer .header,
+.headerContainer .twitter {
+  background-color: white;
+  border-radius: 6px 6px 0 0;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.headerContainer .twitter {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 6px 6px;
+  text-align: center;
+  font-size: 0;
+}
+
+.headerContainer .profileImg {
+  width: 120px;
+  height: 120px;
+  background-image: url("https://ca.slack-edge.com/TNG5KKB2P-UNWP3HYKY-0b015efda2a9-512");
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 100%;
+  margin: 0 auto;
+}
+
+.headerContainer .name {
+  margin-top: 16px;
+  text-align: center;
+  font-size: 22px;
+}
+
+.headerContainer .name a {
+  color: #009ee3;
+  text-decoration: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .headerContainer {
+    width: 700px;
+    margin: 0 auto;
+  }
+}
+/*# sourceMappingURL=style.css.map */
