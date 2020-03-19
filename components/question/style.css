@@ -39,7 +39,7 @@
 }
 
 .questionContainer .q:before {
-  content: "";
+  content: '';
   width: 3px;
   background-color: #009ee3;
   position: absolute;
@@ -51,6 +51,23 @@
   margin-top: 16px;
   color: #333;
   white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.questionContainer .buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.questionContainer .buttons button:first-child {
+  margin-right: 10px;
+}
+
+.questionContainer .dangerButton {
+  width: 40%;
+  color: #570011;
+  background-color: #e64c41;
 }
 
 .questionContainer button {
@@ -62,6 +79,7 @@
   width: 100%;
   border-radius: 4px;
   margin-top: 8px;
+  cursor: pointer;
 }
 
 .questionContainer textarea {
@@ -83,4 +101,3 @@
     margin: 0 auto;
   }
 }
-/*# sourceMappingURL=style.css.map */

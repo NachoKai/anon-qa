@@ -9,7 +9,7 @@ class Header extends React.Component {
 			<header className={style.headerContainer}>
 				<div className={style.header}>
 					<div className={style.profileImg}></div>
-					<div className={style.name}>@nacho_kai</div>
+					<div className={style.name}>Nacho Caiafa</div>
 				</div>
 
 				<div className={style.twitter}>

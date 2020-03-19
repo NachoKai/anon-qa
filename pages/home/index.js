@@ -1,24 +1,33 @@
 import React from 'react';
-
 import axios from 'axios';
-
 import Header from '../../components/header/index';
 import InputText from '../../components/inputText/index';
 import Question from '../../components/question/index';
 
 const isDev = process.env.NODE_ENV !== 'production';
-
-const fetchQuestions = async () => {
-	const url = `${process.env.URL}/api/questions`;
-
+const fetchQuestions = async query => {
+	const arQueries = query || queryConvert();
+	const url = `${process.env.URL}/api/questions?password=${arQueries.password}`;
 	const questions = await axios.get(url);
-
 	return questions.data;
 };
 
+const queryConvert = () => {
+	let queryStr = window.location.search,
+		queryArr = queryStr.replace('?', '').split('&'),
+		queryParams = [];
+
+	for (let q = 0, qArrLength = queryArr.length; q < qArrLength; q++) {
+		let qArr = queryArr[q].split('=');
+		queryParams[qArr[0]] = qArr[1];
+	}
+
+	return queryParams;
+};
+
 class Home extends React.Component {
-	static async getInitialProps() {
-		const questions = await fetchQuestions();
+	static async getInitialProps({ query }) {
+		const questions = await fetchQuestions(query);
 
 		return { questions };
 	}
@@ -27,7 +36,9 @@ class Home extends React.Component {
 		super(props);
 
 		this.state = {
-			questions: this.props.questions || []
+			questions: this.props.questions || [],
+			isAdmin: false,
+			password: ''
 		};
 	}
 
@@ -37,8 +48,17 @@ class Home extends React.Component {
 		this.setState({ questions });
 	};
 
+	componentDidMount() {
+		const arQueries = queryConvert();
+
+		this.setState({
+			isAdmin: arQueries.isAdmin,
+			password: arQueries.password
+		});
+	}
+
 	render() {
-		const { questions } = this.state;
+		const { questions, isAdmin, password } = this.state;
 
 		return (
 			<>
@@ -47,26 +67,13 @@ class Home extends React.Component {
 
 				{questions.map((question, key) => (
 					<Question
+						isAdmin={isAdmin}
+						password={password}
 						key={key}
 						question={question}
 						loadNewQuestions={this.loadNewQuestions}
 					/>
 				))}
-
-				<script
-					async
-					src="https://www.googletagmanager.com/gtag/js?id=UA-28173560-27"
-				></script>
-
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `window.dataLayer = window.dataLayer || [];
-                                function gtag(){dataLayer.push(arguments);}
-                                gtag('js', new Date());
-
-                                gtag('config', 'UA-28173560-27');`
-					}}
-				></script>
 			</>
 		);
 	}

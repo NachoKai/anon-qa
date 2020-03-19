@@ -7,7 +7,10 @@ function MyApp({ Component, pageProps }) {
 		<>
 			<Head>
 				<title>Anon Q&A | Nacho Caiafa</title>
-				<meta name="description" content="Preguntas y respuestas anonimas a Nacho Caiafa" />
+				<meta
+					name="description"
+					content="Preguntas y respuestas anonimas a Nacho Caiafa"
+				/>
 			</Head>
 			<Component {...pageProps} />
 		</>
